@@ -28,7 +28,7 @@ public class CallbackTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
-        // options.addArguments("--headless");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver = new ChromeDriver();
     }
@@ -42,11 +42,7 @@ public class CallbackTest {
     @Test
     void shouldCallbackTest() {
         // загрузка страницы
-        driver.get("http://192.168.1.77:9999");
-
-//        WebElement form = driver.findElement(By.className("input__control"));
-//        form.findElement((By.cssSelector("[data-test-id=name] input"))).sendKeys("Вася Пупкин");
-//        form.findElement((By.cssSelector("[data-test-id=phone] input"))).sendKeys("+79991234567");
+        driver.get("http://0.0.0.0:9999");
         driver.findElement((By.cssSelector("[data-test-id=name] input"))).sendKeys("Вася Пупкин");
         driver.findElement((By.cssSelector("[data-test-id=phone] input"))).sendKeys("+79991234567");
         driver.findElement((By.cssSelector("[data-test-id=agreement]"))).click();
