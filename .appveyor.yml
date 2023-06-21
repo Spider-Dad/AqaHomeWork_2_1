@@ -14,4 +14,4 @@ install:
   - chmod +x gradlew
 
 build_script:
-  - ./gradlew test --stacktrace  # запускаем тест
+  - ./gradlew test  # запускаем тест

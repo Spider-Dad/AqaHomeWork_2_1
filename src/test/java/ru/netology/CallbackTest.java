@@ -15,10 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CallbackTest {
     private WebDriver driver;
+
     @BeforeAll
     static void setupAll() {
+        // Установка пути к ChromeDriver
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Chromedriver\\chromedriver.exe");
         WebDriverManager.chromedriver().setup();
     }
+
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
@@ -30,13 +34,13 @@ public class CallbackTest {
     }
 
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         driver.quit();
         driver = null;
     }
 
     @Test
-    void shouldCallbackTest(){
+    void shouldCallbackTest() {
         // загрузка страницы
         driver.get("http://192.168.1.77:9999");
 
@@ -48,7 +52,7 @@ public class CallbackTest {
         driver.findElement((By.cssSelector("[data-test-id=agreement]"))).click();
         driver.findElement(By.cssSelector("button.button.button_view_extra.button_size_m.button_theme_alfa-on-white")).click();
         String text = driver.findElement((By.cssSelector("[data-test-id=order-success]"))).getText();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.",text.trim());
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
 
 
     }
