@@ -29,6 +29,6 @@ public class CallbackTest {
     @Test
     void shouldCallbackTest(){
         // загрузка страницы
-        driver.get("http://192.168.1.77:9999");
+        driver.get("http://0.0.0.0:9999");
     }
 }
